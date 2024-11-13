@@ -330,7 +330,7 @@ class CI_Pagination {
 	public function __construct($params = array())
 	{
 		$this->CI =& get_instance();
-		$this->CI->load->language('pagination');
+		$this->CI->load->language('mensajes');
 		foreach (array('first_link', 'next_link', 'prev_link', 'last_link') as $key)
 		{
 			if (($val = $this->CI->lang->line('pagination_'.$key)) !== FALSE)
@@ -519,7 +519,8 @@ class CI_Pagination {
 		}
 
 		// If something isn't quite right, back to the default base page.
-		if ( ! ctype_digit($this->cur_page) OR ($this->use_page_numbers && (int) $this->cur_page === 0))
+		//if ( ! ctype_digit($this->cur_page) OR ($this->use_page_numbers && (int) $this->cur_page === 0))
+		if ( ! ctype_digit((string)$this->cur_page) OR ($this->use_page_numbers && (int) $this->cur_page === 0))
 		{
 			$this->cur_page = $base_page;
 		}

@@ -23,16 +23,23 @@
         <!--Import materialize.css-->
         <!-- <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/> -->
         <!--Import bootstrap.css-->
-        <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="<?= base_url('') ?>css/bootstrap.min.css"  media="screen,projection"/>
         
         <!-- Mapas -->
-        <link type="text/css" rel="stylesheet" href="../css/leaflet.css"/>
+        <link type="text/css" rel="stylesheet" href="<?= base_url('') ?>css/leaflet.css"/>
         
         <!-- Galeria fotos -->
-        <link type="text/css" rel="stylesheet" href="../css/jquery.fancybox.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="<?= base_url('') ?>css/jquery.fancybox.min.css"  media="screen,projection"/>
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <script type="text/javascript" src="<?= base_url('') ?>js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="<?= base_url('') ?>js/jquery.fancybox.min.js"></script>
+        <script type="text/javascript" src="<?= base_url('') ?>js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?= base_url('') ?>js/funciones.js"></script>
+        <script type="text/javascript" src="<?= base_url('') ?>js/lazyload.min.js"></script>
+        <script type="text/javascript" src="<?= base_url('') ?>js/lugares.js"></script>
     </head>
 
     <body>

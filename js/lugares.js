@@ -11,9 +11,9 @@ $(document).ready(function(){
 	if (admin == -1){
 		var pathRecargaMunicipios = path + '/municipios/recarga';
 	} else {
-		var pathRecargaMunicipios = path + '/admin/includes/recargamunicipios.php';
-		var pathAdminListadoRutas = path + '/admin/includes/inc_listado_rutas.php';
-		var pathAdminResultados =  path + '/admin/resultados.php';
+		var pathRecargaMunicipios = path + '/admin/visitasAdmin/recarga';
+		//var pathAdminListadoRutas = path + '/admin/includes/inc_listado_rutas.php';
+		//var pathAdminResultados =  path + '/admin/resultados.php';
 	}
 
 	$.ajax({

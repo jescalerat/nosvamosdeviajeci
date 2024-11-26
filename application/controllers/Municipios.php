@@ -36,6 +36,19 @@
             $this->load->model('ContadorModel','CM',true);
             $contador = $this->CM->getAll();
             $datosPie['Contador']=$contador[0]['Contador'];
+
+            $this->load->helper('funciones');
+            $IP = getRealIP();
+            $data = array(
+                'IP' => $IP,
+                'Hora'  => date("H:i:s"),
+                'Fecha'  => date("Y-m-d"),
+                'Pagina'  => 6,
+                'Observaciones'  => ''
+            );
+
+            $this->load->model('PaginasVistasModel','PVM',true);
+            $this->PVM->guardar($data);
             
             $this->load->view('templates/cabecera');
             $this->load->view('templates/menu', $datosMenu);

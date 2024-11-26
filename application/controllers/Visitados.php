@@ -101,6 +101,18 @@
             $contador = $this->CM->getAll();
             $datosPie['Contador']=$contador[0]['Contador'];
 
+            $IP = getRealIP();
+            $data = array(
+                'IP' => $IP,
+                'Hora'  => date("H:i:s"),
+                'Fecha'  => date("Y-m-d"),
+                'Pagina'  => 5,
+                'Observaciones'  => $municipio
+            );
+
+            $this->load->model('PaginasVistasModel','PVM',true);
+            $this->PVM->guardar($data);
+
             $this->load->view('templates/cabecera');
             $this->load->view('templates/menu', $datosMenu);
             $this->load->view('paginas/visitados.php', $datos);

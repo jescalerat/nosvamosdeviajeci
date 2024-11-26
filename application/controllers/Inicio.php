@@ -9,6 +9,46 @@
             $this->CM->guardar($cuenta);
             $datosPie['Contador']=$cuenta;
 
+            $this->load->helper('funciones');
+            $IP = getRealIP();
+            $data = array(
+                'IP' => $IP,
+                'Hora'  => date("H:i:s"),
+                'Fecha'  => date("Y-m-d"),
+                'Pagina'  => 1,
+                'Observaciones'  => ''
+            );
+
+            $this->load->model('PaginasVistasModel','PVM',true);
+            $this->PVM->guardar($data);
+
+            $this->load->library('session');
+
+            $idiom = $this->session->userdata('cambioIdioma');
+
+            if ($idiom == null) {
+                $idiomas = explode(",", $_SERVER['HTTP_ACCEPT_LANGUAGE']);            
+                if (substr($idiomas[0], 0, 2) == "es"){$idiomaIni = 'ES';}
+                else if (substr($idiomas[0], 0, 2) == "en"){$idiomaIni = 'EN';}
+                else if (substr($idiomas[0], 0, 2) == "ca"){$idiomaIni = 'CA';}
+                else {$idiomaIni = 'ES';}
+            } else {
+                if ($idiom == "spanish"){$idiomaIni = 'ES';}
+                else if ($idiom == "english"){$idiomaIni = 'EN';}
+                else if ($idiom == "catalan"){$idiomaIni = 'CA';}
+                else {$idiomaIni = 'ES';}
+            }
+
+            $data = array(
+                'IP' => $IP,
+                'Hora'  => date("H:i:s"),
+                'Fecha'  => date("Y-m-d"),
+                'Idioma'  => $idiomaIni
+            );
+
+            $this->load->model('VisitasModel','VM',true);
+            $this->VM->guardar($data);
+
             $this->detalle($datosPie);
         }
 

@@ -40,6 +40,18 @@
             $this->load->model('ContadorModel','CM',true);
             $contador = $this->CM->getAll();
             $datosPie['Contador']=$contador[0]['Contador'];
+
+            $IP = getRealIP();
+            $data = array(
+                'IP' => $IP,
+                'Hora'  => date("H:i:s"),
+                'Fecha'  => date("Y-m-d"),
+                'Pagina'  => 7,
+                'Observaciones'  => ''
+            );
+
+            $this->load->model('PaginasVistasModel','PVM',true);
+            $this->PVM->guardar($data);
             
             $this->load->view('templates/cabecera');
             $this->load->view('templates/menu', $datosMenu);
@@ -84,11 +96,13 @@
             if (!is_null($this->input->post('mensaje'))){
                 $mensaje = $this->input->post('mensaje');
             }
-            
+
+            $IP = getRealIP();
             $data = array(
                     'Nombre' => $nombre,
                     'Email'  => $email,
-                    'Mensaje'  => $mensaje
+                    'Mensaje'  => $mensaje,
+                    'IP' => $IP
             );
 
             $this->load->model('CorreoModel','EM',true);
@@ -102,6 +116,18 @@
             $this->load->model('ContadorModel','CM',true);
             $contador = $this->CM->getAll();
             $datosPie['Contador']=$contador[0]['Contador'];
+
+            
+            $data = array(
+                'IP' => $IP,
+                'Hora'  => date("H:i:s"),
+                'Fecha'  => date("Y-m-d"),
+                'Pagina'  => 72,
+                'Observaciones'  => ''
+            );
+
+            $this->load->model('PaginasVistasModel','PVM',true);
+            $this->PVM->guardar($data);
             
             $this->load->view('templates/cabecera');
             $this->load->view('templates/menu', $datosMenu);

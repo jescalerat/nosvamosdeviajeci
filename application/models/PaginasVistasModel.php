@@ -45,4 +45,8 @@ class PaginasVistasModel extends CI_Model
         $this->db->where('IdPaginasVistas', $idPaginaVistas);
         $this->db->delete('paginasvistas');
     }
+
+    public function guardar($nuevoDato){
+        $this->db->insert('paginasvistas', $nuevoDato);
+    }
 }

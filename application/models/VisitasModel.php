@@ -53,4 +53,8 @@ class VisitasModel extends CI_Model
         $this->db->where('IdVisita', $idVisita);
         $this->db->delete('visitas');
     }
+
+    public function guardar($nuevoDato){
+        $this->db->insert('visitas', $nuevoDato);
+    }
 }

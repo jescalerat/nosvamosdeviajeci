@@ -50,4 +50,18 @@ class RutasModel extends CI_Model
         $listaRutasDia = $query->result_array();
         return $listaRutasDia;
     }
+
+    public function guardar($nuevoDato){
+        $this->db->insert('rutas', $nuevoDato);
+    }
+
+    public function eliminar($idRuta){
+        $this->db->where('IdRuta', $idRuta);
+        $this->db->delete('rutas');
+    }
+
+    public function modificar($nuevoDato){
+        $this->db->where('IdRuta', $nuevoDato['IdRuta']);
+        $this->db->update('rutas', $nuevoDato);
+    }
 }

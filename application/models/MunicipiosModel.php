@@ -98,4 +98,8 @@ class MunicipiosModel extends CI_Model
         return $listaMunicipios;
     }
 
+    public function modificar($nuevoDato){
+        $this->db->where('IdMunicipio', $nuevoDato['IdMunicipio']);
+        $this->db->update('municipios', $nuevoDato);
+    }
 }

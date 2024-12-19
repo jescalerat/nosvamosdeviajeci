@@ -42,9 +42,15 @@ img.zoom {
 </style>
 
 <form class="col">
-        <div class="row">
+    <div class="row">
 		<div class="col" id="titulo">
 			<h1 class="text-center"><?= $municipio ?></h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col" id="facebook">
+			<a href="<?= $facebook ?>"  target="_blank"><?= $facebook ?></a>
 		</div>
 	</div>
 
@@ -56,7 +62,7 @@ img.zoom {
 
 	<div class="row">
 <?php if(!empty($fotos)): foreach($fotos as $foto): ?>
-		<div class="col-3" style="margin-bottom: 2rem;">
+		<div class="col-sm-3" style="margin-bottom: 2rem;">
 			<div class="card border-primary">
 				<a href="<?= $foto["Foto"] ?>" class="fancybox" rel="ligthbox">
 					<img  src="<?= $foto["Foto"] ?>" data-src="<?= $foto["Foto"] ?>" class="zoom img-fluid lazyload"  alt="<?= $foto["Orden"] ?>" title="<?= $foto["Orden"] ?>" >

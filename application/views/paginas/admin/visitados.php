@@ -8,14 +8,14 @@
 		$idMunicipioVisitado=$row["IdVisitado"];
 ?>
 			<tr>
-				<td>
-					<a href="visitasAdmin/visitado/<?= $idMunicipioVisitado ?>"><?= $tituloMunicipio ?></a>
+				<td width="50%">
+					<a href="<?= site_url('admin/visitasAdmin') ?>/visitado/<?= $idMunicipioVisitado ?>"><?= $tituloMunicipio ?></a>
 				</td>
-				<td class="text-center">
-					<?= $row["Fecha"] ?>
+				<td class="text-center" width="30%">
+					<?= devolverFecha($row["Fecha"]) ?>
 				</td>
-				<td>
-					<a href="resultados.php?idVisitado=<?= $idMunicipioVisitado ?>&opcion=D&idPagina=1">Eliminar</a>
+				<td width="20%">
+					<a href="<?= site_url('admin/visitasAdmin') ?>/borrarVisitado/<?= $idMunicipioVisitado ?>">Eliminar</a>
 				</td>
 			</tr>
 <?php 

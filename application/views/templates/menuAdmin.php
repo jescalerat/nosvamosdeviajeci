@@ -23,19 +23,19 @@
 					<tr>
 						<td>
 							&nbsp;
-							<a href="rutas.php">Rutas</a>
+							<a href="<?= site_url('admin/rutasAdmin') ?>">Rutas</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							&nbsp;
-							<a href="comentarios.php">Comentarios</a>
+							<a href="<?= site_url('admin/comentarios') ?>">Comentarios</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							&nbsp;
-							<a href="fotos.php">Fotos</a>
+							<a href="<?= site_url('admin/fotos') ?>">Fotos</a>
 						</td>
 					</tr>
 					

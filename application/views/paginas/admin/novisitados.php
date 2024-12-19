@@ -5,11 +5,11 @@
 
 	foreach ($listaMunicipiosNoVisitados as $row){
 		$tituloMunicipio=$row["Municipio"];
-		$idMunicipioVisitado=$row["IdVisitado"];
+		$idMunicipioVisitado=$row["IdMunicipio"];
 ?>
 			<tr>
 				<td class="text-center">
-					<a href="visitado.php?idMunicipioVisitado=<?= $idMunicipioVisitado ?>&opcion=N"><?= $tituloMunicipio ?></a>
+					<a href="<?= site_url('admin/visitasAdmin') ?>/municipioVisitado/<?= $idMunicipioVisitado ?>"><?= $tituloMunicipio ?></a>
 				</td>
 			</tr>
 <?php 

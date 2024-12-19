@@ -16,6 +16,7 @@
         }
 
        public function visita($idVisitado,$idRutaDia){
+            $indexAdmin = $this->session->userdata('indexAdmin');
             $idiom = $this->session->userdata('language');
 
             $titulo = $this->lang->line('rutas_titulo');
@@ -45,6 +46,10 @@
             $municipio = obtenerMunicipio($idMunicipio, false);
             $datos['municipio']=$municipio;
             $datos['idRutaDia']=$idRutaDia;
+            $datos['facebook']="";
+            if ($indexAdmin == 1){
+                $datos['facebook']=$visitados[0]['Facebook'];
+            }
 
             $this->load->model('FotosModel','FM',true);
             //get rows count
@@ -153,7 +158,8 @@
         }
 
         public function ruta_dia($idRuta){
-
+            $idiom = $this->session->userdata('language');
+            
             $datos = array ('rutaDia' => $this->lang->line('ruta_dia_dia'),
                             'rutaMunicipios' => $this->lang->line('ruta_dia_municipios'),
                             'rutaVolver' => $this->lang->line('ruta_dia_volver'));
@@ -167,7 +173,15 @@
             $rutaComentario = $this->RCM->getComentarioRutaDia($idRuta);
             $comentarios = "";
             if ($rutaComentario != null) {
-                $comentarios=$rutaComentario[0]['ComentarioES'];    
+                if ("spanish" == $idiom){
+                    $comentarios=$comentario[0]['ComentarioES'];
+                } else if ("english" == $idiom){
+                    $comentarios=$comentario[0]['ComentarioEN'];
+                } else if ("catalan" == $idiom){
+                    $comentarios=$comentario[0]['ComentarioCA'];
+                } else {
+                    $comentarios=$comentario[0]['ComentarioES'];
+                } 
             }
             $datos['rutaComentario']=$comentarios;
             

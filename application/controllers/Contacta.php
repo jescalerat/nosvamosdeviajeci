@@ -108,6 +108,12 @@
             $this->load->model('CorreoModel','EM',true);
             $this->EM->guardar($data);
 
+            $email2="webmaster@nosvamosdeviaje.es";
+            $asunto="Sugerencias";
+            $cuerpo="Nombre: ".$nombre."\r\nEmail: ".$email."\r\nMensaje: ".$mensaje;
+
+            mail($email2, $asunto, $cuerpo);
+
             $datosMenu = array ('inicio' => $this->lang->line('menu_inicio'),
                                 'rutas' => $this->lang->line('menu_rutas'),
                                 'municipios' => $this->lang->line('menu_municipios'),

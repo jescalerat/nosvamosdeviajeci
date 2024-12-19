@@ -57,6 +57,8 @@
             $contador = $this->CM->getAll();
             $datosPie['Contador']=$contador[0]['Contador'];
 
+            $this->session->set_userdata('indexAdmin',1);
+
             $this->detalle($datosPie);
         }
 
